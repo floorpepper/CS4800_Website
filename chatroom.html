@@ -2,9 +2,39 @@
 <html>
 <head>
 	<title>Chatroom</title>
+	<link rel="stylesheet" href="stylesheet.css">
+	<script src="chat_functionality.js"></script>
+
+	<!--Bootstrap CSS and JS files-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>
 	<h1>Chatroom</h1>
-	<input type="text" value="Type here...">
+	<div>
+	      <div class="chatbot_overview">
+	        <ul id="chatList">
+	          <li class="chat">Hi stranger.</li>
+	          <li class="chat">It's been a while. I've missed you.</li>
+	          <li class="chat">It's okay, you can look at my butt.</li>
+	        </ul>
+	        <textarea id="userchat" placeholder="Talk to me!" class="chatbox" name="chatbox" minlength="2"></textarea>
+
+	        <button onclick="myFunction()">Send</button>
+
+	        <script>
+	        function myFunction() {
+	          var node = document.createElement("LI");
+	          var textnode = document.createTextNode(document.getElementById("userchat").value);
+	          node.classList.add("chat");
+	          node.appendChild(textnode);
+	          document.getElementById("chatList").appendChild(node);
+	          document.getElementById("userchat").value = "";
+	        }
+	        </script>
+	      </div>
+	                <div class="block-background"></div>
+
+	</div>
 </body>
 </html>

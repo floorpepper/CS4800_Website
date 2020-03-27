@@ -1,8 +1,14 @@
+/*
+*/
+
 .root
 {
 	background: #E5E5E5;
 }
 
+.chat{
+    list-style-type: none;
+}
 #overallBox
 {
 	position: absolute;
