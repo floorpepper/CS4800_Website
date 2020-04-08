@@ -4,13 +4,15 @@
 }
 
 .chat{
-    list-style-type: none;
+	list-style-type: none;
+	background-color: lavender;
 }
 
 .response{
 	list-style-type: none;
 	text-align: right;
 	padding: 20px 20px 20px 20px;
+	background-color: lavenderblush;
 }
 
 .chatbox{
@@ -20,4 +22,5 @@
 ul{
 	width: 500px;
 	word-wrap: break-word;
+
 }
