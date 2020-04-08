@@ -1,7 +1,6 @@
 .root
 {
-	background-color: grey
-	
+	background-color: grey;
 }
 
 .chat{
@@ -20,4 +19,5 @@
 }
 ul{
 	width: 500px;
+	word-wrap: break-word;
 }
