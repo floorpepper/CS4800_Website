@@ -1,26 +1,35 @@
-.root
-{
+.root {
 	background-color: grey;
 }
 
-.chat{
+
+
+.chat {
 	list-style-type: none;
+	width: auto;
+	text-align: left;
+	padding: 10px;
+	margin: 0px 20px 5px 0px;
+	border-radius: 8px 20px 20px 8px;
 	background-color: lavender;
 }
 
-.response{
+.response {
 	list-style-type: none;
 	text-align: right;
-	padding: 20px 20px 20px 20px;
-	background-color: lavenderblush;
+	padding: 15px;
+	margin: 0px 0px 5px 20px;
+	border-radius: 20px 8px 8px 20px;
+	background-color: pink;
 }
 
-.chatbox{
+.chatbox {
 	width:500px;
-	margin: 20px 20px 20px 20px;
+	border-radius: 5px;
+	margin: 20px;
 }
-ul{
+
+ul {
 	width: 500px;
 	word-wrap: break-word;
-
 }
