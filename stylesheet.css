@@ -3,7 +3,6 @@
 }
 
 .chat {
-	list-style-type: none;
 	text-align: left;
 	float: left;
 	margin: 0px 20px 2px 0px;
@@ -11,7 +10,6 @@
 }
 
 .response {
-	list-style-type: none;
 	text-align: right;
 	float: right;
 	margin: 0px 0px 2px 20px;
@@ -31,15 +29,40 @@
 	border-bottom-right-radius: 20px;
 }
 
+#chatList {
+	position: absolute;
+	bottom: 70px;
+}
+
 .chatbox {
+	background-color: whitesmoke;
+	position: fixed;
+	bottom: 0;
+	height: 50px;
 	width: 500px;
-	border-radius: 5px;
+	padding: 5px;
+	border: none;
+	border-radius: 10px;
 	margin: 20px;
+}
+
+.button {
+	display: inline-block;
+	position: fixed;
+	bottom: 0;
+	left: 455px;
+	background-color: orchid;
+	color: white;
+	text-align: center;
+	padding: 5px 15px;
+	margin-left: 0px;
+	border: none;
+	border-radius: 5px;
 }
 
 ul {
 	width: 500px;
-	vertical-align: middle;
+	vertical-align: bottom;
 }
 
 ul li {
