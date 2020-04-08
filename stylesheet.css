@@ -2,10 +2,6 @@
 	background-color: blue;
 }
 
-.h1 {
-	text-align: center;
-}
-
 .chat {
 	list-style-type: none;
 	text-align: left;
@@ -42,12 +38,15 @@
 }
 
 ul {
-	list-style: none;
 	width: 500px;
+	vertical-align: middle;
 }
 
 ul li {
 	display: inline-block;
+	max-width: 400px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
 	clear: both;
 	padding: 10px;
 	border-radius: 20px;
