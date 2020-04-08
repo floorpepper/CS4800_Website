@@ -14,19 +14,25 @@
 	<div>
 	      <div class="chatbot_overview">
 	        <ul id="chatList">
-	          <li class="chat">Hi stranger.</li>
-	          <li class="chat">It's been a while. I've missed you.</li>
-	          <li class="chat">It's okay, you can look at my butt.</li>
+	          <li class="chat" class="inlineLeft">How are you feeling today?</li>
 	        </ul>
-	        <textarea id="userchat" placeholder="Talk to me!" class="chatbox" name="chatbox" minlength="2"></textarea>
+	        <textarea id="userchat" placeholder="Talk to me." class="chatbox" name="chatbox" minlength="2"></textarea>
 
-	        <button onclick="myFunction()">Send</button>
+	        <button onclick="submit()">Send</button>
 
 	        <script>
-	        function myFunction() {
+	        document.getElementById("userchat").addEventListener("keyup", function(event) {
+	            event.preventDefault();
+	            if (event.keyCode === 13) {
+	                submit();
+	            }
+	        });
+
+	        function submit() {
 	          var node = document.createElement("LI");
+              node.className = "inlineRight";
 	          var textnode = document.createTextNode(document.getElementById("userchat").value);
-	          node.classList.add("chat");
+	          node.classList.add("response");
 	          node.appendChild(textnode);
 	          document.getElementById("chatList").appendChild(node);
 	          document.getElementById("userchat").value = "";
