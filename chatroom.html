@@ -17,9 +17,11 @@
 			  <li class="chat" class="inlineLeft">How are you feeling today?</li>
 			</ul>
 			<br><br>
-	        <textarea id="userchat" placeholder="Talk to me." class="chatbox" name="chatbox" minlength="2"></textarea>
+			<div class="textbutton">
+				<textarea id="userchat" placeholder="Talk to me." class="chatbox" name="chatbox" minlength="2"></textarea>
+				<button class="button" onclick="submit()">Send</button>
+			</div>
 
-	        <button class="button" onclick="submit()">Send</button>
 
 	        <script>
 	        document.getElementById("userchat").addEventListener("keyup", function(event) {
