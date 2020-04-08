@@ -1,35 +1,55 @@
 .root {
-	background-color: grey;
+	background-color: blue;
 }
 
-
+.h1 {
+	text-align: center;
+}
 
 .chat {
 	list-style-type: none;
-	width: auto;
 	text-align: left;
-	padding: 10px;
-	margin: 0px 20px 5px 0px;
-	border-radius: 8px 20px 20px 8px;
+	float: left;
+	margin: 0px 20px 2px 0px;
 	background-color: lavender;
 }
 
 .response {
 	list-style-type: none;
 	text-align: right;
-	padding: 15px;
-	margin: 0px 0px 5px 20px;
-	border-radius: 20px 8px 8px 20px;
+	float: right;
+	margin: 0px 0px 2px 20px;
 	background-color: pink;
 }
 
+.chat + .response {
+	border-bottom-right-radius: 8px;
+}
+
+.response + .response {
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.response:last-of-type {
+	border-bottom-right-radius: 20px;
+}
+
 .chatbox {
-	width:500px;
+	width: 500px;
 	border-radius: 5px;
 	margin: 20px;
 }
 
 ul {
+	list-style: none;
 	width: 500px;
-	word-wrap: break-word;
 }
+
+ul li {
+	display: inline-block;
+	clear: both;
+	padding: 10px;
+	border-radius: 20px;
+}
+
