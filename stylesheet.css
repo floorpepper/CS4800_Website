@@ -38,6 +38,7 @@ h1 {
 }
 
 #chatList {
+	z-index: -1;
 	width: 50%;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -48,11 +49,12 @@ h1 {
 
 .chatbox {
 	background-color: whitesmoke;
+	resize: none;
 	float: left;
 	padding: 5px;
 	padding-right: 70px;
 	margin-right: -70px;
-	width: 100%;
+	width: 90%;
 	height: 50px;
 	border: none;
 	border-radius: 10px;
@@ -61,7 +63,7 @@ h1 {
 
 .button {
 	float: right;
-	width: 70px;
+	width: 10%;
 	height: 50px;
 	background-color: hotpink;
 	color: white;
