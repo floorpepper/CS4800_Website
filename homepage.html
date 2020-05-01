@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="stylesheet.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="chat_functionality.js"></script>
 	<title>Mental Health Services</title>
@@ -13,13 +14,30 @@
 		<div id="title">
 			<h1>Mental Health Services</h1>
 		</div>
-		<div id=centerBox>
+		<div id=loginBox>
 			<div id=promptBox>
-				<label for="name">Enter your name here.</label>
-				<input type="text" id="name" name="name">
-				<label id="nameDisplay"></label>
+				<label for="username">Username</label>
+				<input type="text" id="usernameLogin" name="name">
+				<br>
+				<label for="name">Password</label>
+				<input type="password" id="passwordLogin" name="name">
+				<br>
+				<label id="loginResult"></label>
 			</div>
-			<input type=button onClick="location.href='chatroom.html'" value='click here'>
+			<button id="loginBtn">Log In</button>
+		</div>
+		<br>
+		<div id=signupBox>
+			<div id=promptBox>
+				<label for="username">Username</label>
+				<input type="text" id="usernameSignup" name="name">
+				<br>
+				<label for="name">Password</label>
+				<input type="password" id="passwordSignup" name="name">
+				<br>
+				<label id="signupResult"></label>
+			</div>
+			<button id="signupBtn">Create Account</button>
 		</div>
 	</div>
 </body>
