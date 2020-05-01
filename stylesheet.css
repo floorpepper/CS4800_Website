@@ -20,7 +20,7 @@ h1 {
 	float: right;
 	margin: 0px 0px 2px 0px;
 	color: white;
-	background: linear-gradient(purple, hotpink);
+	background: linear-gradient(lightblue, grey);
 	background-attachment: fixed;
 }
 
@@ -65,7 +65,7 @@ h1 {
 	float: right;
 	width: 10%;
 	height: 50px;
-	background-color: hotpink;
+	background-color: grey;
 	color: white;
 	text-align: center;
 	padding: 5px;
