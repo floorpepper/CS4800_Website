@@ -45,7 +45,7 @@ function submit() {
 	    "Content-Type": "application/json",
 	    "Authorization": `Bearer ${"" + localStorage.token}`
 	  },
-	  "data": `{ \r\n\t\"message\": \"${userText}\"\r\n}`	//<-- problem area. Directly referencing userText in this string causes CORS error (sometimes works though)
+	  "data": `{ \r\n\t\"message\": \"${"" + userText}\"\r\n}`	//<-- problem area. Directly referencing userText in this string causes CORS error (sometimes works though)
 	};
 
 	$.ajax(settings).done(function (response) {
@@ -100,7 +100,6 @@ function loginReq(){
 		
 		document.getElementById("loginResult").innerHTML = response.message;
 		localStorage.token = JSON.stringify(response.user.token).slice(1, -1);
-		alert("token now " + localStorage.token);
 	  	console.log(response);
 	  	window.setTimeout(function(){
 	 		//relocate to chatroom
