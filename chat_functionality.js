@@ -5,7 +5,7 @@ for testing:
 user0 token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWFiZTUyNTNlNmJkMjAwMTc4ODg5YTEiLCJpYXQiOjE1ODg0MDY2MTh9.Joorfc8KgJDbe06k3l5V-3l-vwh4uCmDyldWDKX28mU"
 */
 
-var timeoutDefault = 700;
+var timeoutDefault = 0;
 
 /*This function ensures all of the HTML has loaded before any javascript kicks in.*/
 window.onload = function () {
@@ -33,10 +33,16 @@ part of the time. otherwise, gives CORS error.
 */
 /*send user response to server*/
 function submit() {
+	var userText = document.getElementById("userchat").value;
+	if(userText === "" || userText == "\n"){
+		document.getElementById("userchat").value = "";	//reset user's text box
+		return;
+	}
 	//add to chat visually
 	var userText = document.getElementById("userchat").value;
 	addToChat(true, userText);
-	var tester = "feeling bad";
+	
+	//send to server
 	var settings = {
 	  "url": "http://chatbot-server4800.herokuapp.com/messages",
 	  "method": "POST",
@@ -45,7 +51,11 @@ function submit() {
 	    "Content-Type": "application/json",
 	    "Authorization": `Bearer ${"" + localStorage.token}`
 	  },
-	  "data": JSON.stringify({message: userText})
+	  "data": JSON.stringify(
+	  	{
+	  		message: userText,
+	  		username: localStorage.username
+	  	})
 	};
 
 	$.ajax(settings).done(function (response) {
@@ -75,7 +85,8 @@ function addToChat(isUser, chatText){
 
 /*Log in as an existing user*/
 function loginReq(){
-	var userL = document.getElementById("usernameLogin").value;
+
+	localStorage.username = document.getElementById("usernameLogin").value;
 	var passL = document.getElementById("passwordLogin").value;
 	
 	var settings = {
@@ -89,7 +100,7 @@ function loginReq(){
 	    "Postman-Token": "b1113894-6c47-4927-b427-e98626a36dd5"
 	  },
 	  "processData": false,
-	  "data": `{ \r\n\t\"username\": \"${userL}\",\r\n\t\"password\": \"${passL}\"\r\n}`
+	  "data": `{ \r\n\t\"username\": \"${localStorage.username}\",\r\n\t\"password\": \"${passL}\"\r\n}`
 	}
 
 	$(document).ajaxError(function() {
@@ -99,7 +110,9 @@ function loginReq(){
 	$.ajax(settings).done(function (response) {
 		
 		document.getElementById("loginResult").innerHTML = response.message;
-		localStorage.token = JSON.stringify(response.user.token).slice(1, -1);
+		localStorage.token = JSON.stringify(response.user.token).slice(1, -1);	//extract token and remove quotes
+		localStorage.sessionId = JSON.stringify(response.user.token).slice(1, -1);	//extract session id and remove quotes
+		alert("session id: " + localStorage.sessionId);
 	  	console.log(response);
 	  	window.setTimeout(function(){
 	 		//relocate to chatroom
@@ -110,7 +123,7 @@ function loginReq(){
 
 /*Create a new user*/
 function signupReq(){
-	var user = document.getElementById("usernameSignup").value;
+	localStorage.username = document.getElementById("usernameSignup").value;
 	var pass = document.getElementById("passwordSignup").value;
 	
 	var settings = {
@@ -131,6 +144,8 @@ function signupReq(){
 
 		document.getElementById("signupResult").innerHTML = response.message;//JSON.stringify(response);
 		localStorage.token = JSON.stringify(response.user.token).slice(1, -1);
+		localStorage.sessionId = JSON.stringify(response.user.token).slice(1, -1);	//extract session id and remove quotes
+		alert("session id: " + localStorage.sessionId);
 	 	console.log(response);
 	 	window.setTimeout(function(){
 	 		//relocate to chatroom
