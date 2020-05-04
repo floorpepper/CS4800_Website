@@ -112,7 +112,6 @@ function loginReq(){
 		document.getElementById("loginResult").innerHTML = response.message;
 		localStorage.token = JSON.stringify(response.user.token).slice(1, -1);	//extract token and remove quotes
 		localStorage.sessionId = JSON.stringify(response.user.token).slice(1, -1);	//extract session id and remove quotes
-		alert("session id: " + localStorage.sessionId);
 	  	console.log(response);
 	  	window.setTimeout(function(){
 	 		//relocate to chatroom
