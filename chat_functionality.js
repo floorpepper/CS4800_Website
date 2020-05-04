@@ -45,7 +45,7 @@ function submit() {
 	    "Content-Type": "application/json",
 	    "Authorization": `Bearer ${"" + localStorage.token}`
 	  },
-	  "data": `{ \r\n\t\"message\": \"${"" + userText}\"\r\n}`	//<-- problem area. Directly referencing userText in this string causes CORS error (sometimes works though)
+	  "data": JSON.stringify({message: userText})
 	};
 
 	$.ajax(settings).done(function (response) {
