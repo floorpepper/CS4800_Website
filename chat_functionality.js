@@ -136,7 +136,7 @@ function signupReq(){
 	    "Postman-Token": "c0b0a739-d630-46fc-b9d6-9f329ee5d8eb"
 	  },
 	  "processData": false,
-	  "data": `{ \r\n\t\"username\": \"${user}\",\r\n\t\"password\": \"${pass}\"\r\n}`
+	  "data": `{ \r\n\t\"username\": \"${localStorage.username}\",\r\n\t\"password\": \"${pass}\"\r\n}`
 	}
 
 	$.ajax(settings).done(function (response) {
@@ -144,7 +144,6 @@ function signupReq(){
 		document.getElementById("signupResult").innerHTML = response.message;//JSON.stringify(response);
 		localStorage.token = JSON.stringify(response.user.token).slice(1, -1);
 		localStorage.sessionId = JSON.stringify(response.user.token).slice(1, -1);	//extract session id and remove quotes
-		alert("session id: " + localStorage.sessionId);
 	 	console.log(response);
 	 	window.setTimeout(function(){
 	 		//relocate to chatroom
