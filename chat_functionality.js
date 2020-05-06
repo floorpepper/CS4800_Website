@@ -38,6 +38,9 @@ function submit() {
 		document.getElementById("userchat").value = "";	//reset user's text box
 		return;
 	}
+	var x = document.getElementById("chime");
+	x.play();
+
 	//add to chat visually
 	var userText = document.getElementById("userchat").value;
 	addToChat(true, userText);
@@ -63,6 +66,7 @@ function submit() {
 	  var therapistResponse = response.newMessage;
 	  addToChat(false, therapistResponse);
 	});
+	x.pause();
 }
 
 function addToChat(isUser, chatText){
@@ -81,6 +85,8 @@ function addToChat(isUser, chatText){
 	node.appendChild(textnode);
 	document.getElementById("chatList").appendChild(node);
 	document.getElementById("userchat").value = "";	//reset user's text box
+	
+	document.getElementById("chatList").scrollTop = document.getElementById("chatList").scrollHeight;
 }
 
 /*Log in as an existing user*/

@@ -1,18 +1,26 @@
 
 /*Color variables, for easy referencing across multiple nodes*/
 :root {
-  --color1:;
+  --color1: #E2B8FF;	/*violet*/
+  --color2: #D8BEFF;
+  --color3: #CEC5FF;
+  --color4: #C4CBFF;
+  --color5: #BAD2FF;
+  --color6: #B0D8FF;	/*blue*/
 }
 
+*{
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+	overflow: none;
+}
 html {
 	/* background-image: url(cute-background.jpeg); */
-	background: linear-gradient(lavender,lavenderblush);
+	background: linear-gradient(#E2B8FF,#B0D8FF);
 	background-attachment: fixed;
 }
 
 h1 {
 	text-align: center;
-	font-family: "Sofia";
 }
 
 body {
@@ -120,6 +128,7 @@ input{
 }
 
 #overallBox{
+
 	width:100%;
 	display: inline-flex;
 	flex-direction: row;
@@ -141,6 +150,7 @@ input{
 
 #title *{
 	background-color: transparent;
+	margin: 10px 10px 10px 10px;
 }
 ul{
 max-height: 80%;
