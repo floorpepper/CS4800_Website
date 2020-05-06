@@ -5,7 +5,7 @@ for testing:
 user0 token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWFiZTUyNTNlNmJkMjAwMTc4ODg5YTEiLCJpYXQiOjE1ODg0MDY2MTh9.Joorfc8KgJDbe06k3l5V-3l-vwh4uCmDyldWDKX28mU"
 */
 
-var timeoutDefault = 0;
+var timeoutDefault = 500;
 
 /*This function ensures all of the HTML has loaded before any javascript kicks in.*/
 window.onload = function () {

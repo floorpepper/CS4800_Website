@@ -1,6 +1,12 @@
+
+/*Color variables, for easy referencing across multiple nodes*/
+:root {
+  --color1:;
+}
+
 html {
 	/* background-image: url(cute-background.jpeg); */
-	background: linear-gradient(lavender,white);
+	background: linear-gradient(lavender,lavenderblush);
 	background-attachment: fixed;
 }
 
@@ -11,7 +17,7 @@ h1 {
 
 body {
 	height: 50px;
-	background-color: lavender !important;
+	background-color: transparent !important;
 }
 
 .chat {
@@ -53,7 +59,18 @@ body {
 	bottom: 70px;
 	left: 25%;
 }
-
+input{
+	background-color: whitesmoke;
+	resize: none;
+	padding: 5px;
+	padding-right: 70px;
+	margin-right: -70px;
+	width: 90%;
+	height: 50px;
+	border: none;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
 .chatbox {
 	background-color: whitesmoke;
 	resize: none;
@@ -69,19 +86,27 @@ body {
 }
 
 .button {
-	float: right;
-	width: 80px;
 	height: 50px;
 	background-color: rgb(125, 214, 243);
 	color: white;
 	text-align: center;
 	padding: 5px;
-	margin-left: 0px;
+	
 	border: none;
 	border-radius: 5px;
 }
+.chatroomButton{
+	float: right;
+	width: 80px;
+	margin-left: 0px;
+}
+
+.homepageButton{
+	
+}
 
 #logoutBtn {
+	margin: 10px 10px 10px 10px;
 	position: absolute;
 	right: 0;
 }
@@ -94,6 +119,33 @@ body {
 	left: 25%;
 }
 
+#overallBox{
+	width:100%;
+	display: inline-flex;
+	flex-direction: row;
+	margin: 10px;
+	 justify-content: center;
+}
+
+#loginBox, #signupBox{
+	padding: 10px 10px 10px 10px !important;
+	text-align: center;
+	border: 2px solid white;
+	border-radius: 10px;
+	margin: 10px;
+}
+
+#promptBox{
+	text-align: right;
+}
+
+#title *{
+	background-color: transparent;
+}
+ul{
+max-height: 80%;
+	overflow: auto;
+}
 ul li {
 	display: inline-block;
 	max-width: 65%;
@@ -102,5 +154,28 @@ ul li {
 	clear: both;
 	padding: 10px;
 	border-radius: 20px;
+}
+
+/*SCROLLBAR STUFF*/
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 10px lavenderblush; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: lightgrey; 
 }
 
