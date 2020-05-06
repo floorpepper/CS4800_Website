@@ -157,6 +157,7 @@ max-height: 80%;
 	overflow: auto;
 }
 ul li {
+	margin: 5px 5px 5px 5px !important;
 	display: inline-block;
 	max-width: 65%;
 	overflow-wrap: break-word;
