@@ -16,6 +16,9 @@ window.onload = function () {
 	assignFunction("submitBtn", submit);
 };
 
+function setGreet(){
+	document.getElementById("greeting").innerHTML = document.getElementById("greeting").innerHTML + localStorage.username + ".";
+}
 /*add event listeners to elements in html */
 function assignFunction(desiredElemId, desiredFunction){
 	var desiredElem = document.getElementById(desiredElemId);
@@ -24,13 +27,6 @@ function assignFunction(desiredElemId, desiredFunction){
     }
 }
 
-/*
-TODO: fix this function. Currently able to send a hard-coded message, but throws a CORS error: "Access to XMLHttpRequest at 'http://chatbot-server4800.herokuapp.com/messages' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
-when a dynamic variable is used (aka userText, a variable that extracts user input from the webpage), a post request only works 
-part of the time. otherwise, gives CORS error.
-- look into CORS
-- see if this is a server issue
-*/
 /*send user response to server*/
 function submit() {
 	var userText = document.getElementById("userchat").value;
@@ -70,21 +66,12 @@ function submit() {
 }
 
 function addToChat(isUser, chatText){
-	var node = document.createElement("LI");
-	
-	if(isUser){
-		node.className = "inlineRight";
-		node.classList.add("response");
-	}
-	else{
-		node.className = "inlineLeft";
-		node.classList.add("chat");
-	}
+	const el = document.querySelector("#module");
 
-	var textnode = document.createTextNode(chatText);
-	node.appendChild(textnode);
-	document.getElementById("chatList").appendChild(node);
-	document.getElementById("userchat").value = "";	//reset user's text box
+	el.addEventListener("mousemove", (e) => {
+	  el.style.backgroundPositionX = -e.offsetX + "px";
+	  el.style.backgroundPositionY = -e.offsetY + "px";
+	});
 	
 	document.getElementById("chatList").scrollTop = document.getElementById("chatList").scrollHeight;
 }
@@ -147,7 +134,14 @@ function signupReq(){
 
 	$.ajax(settings).done(function (response) {
 
-		document.getElementById("signupResult").innerHTML = response.message;//JSON.stringify(response);
+		var signupResult = document.getElementById("signupResult");
+		
+		if(response.message.includes("User validation failed")){
+			signupResult.innerHTML = "Please enter a valid username and password.";
+		}
+		else{
+			signupResult.innerHTML = response.message;
+		}
 		localStorage.token = JSON.stringify(response.user.token).slice(1, -1);
 		localStorage.sessionId = JSON.stringify(response.user.token).slice(1, -1);	//extract session id and remove quotes
 	 	console.log(response);
@@ -161,19 +155,4 @@ function signupReq(){
 function logout(){
 	localStorage.token = "-1";	//reset token
 	window.location.href = "homepage.html";
-}
-
-function putReq(){
-	/*jQuery ajax POST request*/
-	$.ajax({
-		url:'https://chatbot-server4800.herokuapp.com/',
-		headers: {"Content-Type": "application/json"},
-		type:"GET",
-		success: function(result){
-			console.log(result)
-		},
-		error: function(error){
-			console.log('Error ${error}')
-		}
-	})
 }
